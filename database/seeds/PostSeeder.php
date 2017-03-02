@@ -22,6 +22,7 @@ class PostSeeder extends Seeder
             'excerpt' => \App\Post::makeExcerpt($content),
             'user_id' => \App\User::first()->id,
             'category_id' => $this->createCategory(),
+            'status' => 'PUBLISHED',
         ]);
         
         $post->attachTagsByTagNames(['intro', 'study']);
