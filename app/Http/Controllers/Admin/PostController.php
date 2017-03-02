@@ -48,7 +48,6 @@ class PostController extends Controller
         $inputs = $request->all();
         $inputs['content'] = Markdown::instance()->convertMarkdownToHtml($request->input('content_original', ''));
         $inputs['excerpt'] = Post::makeExcerpt($inputs['content']);
-        $inputs['user_id'] = Auth::id();
         if ($request->hasFile('cover')) {
             $inputs['cover'] = ImageHandler::instance()->store($request->file('image'));
         }
